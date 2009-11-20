@@ -1,4 +1,4 @@
-require 'my_amee/config'
+require 'my_amee/app_config'
 
 if Object.const_defined?("AMEE")
 
@@ -8,7 +8,7 @@ if Object.const_defined?("AMEE")
 
         def self.connect_with_my_amee(server, username, password, options)
           # Fetch config
-          config = MyAmee::Config.application_config(:amee)
+          config = MyAmee::AppConfig.get(:amee)
           # Connect to AMEE with credentials from My AMEE app config
           if config
             return connect_without_my_amee(config['server'], config['username'], config['password'], options)

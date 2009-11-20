@@ -2,13 +2,14 @@ require 'active_record/connection_adapters/abstract_adapter'
 require 'active_record/connection_adapters/mysql_adapter'
 require 'active_record/connection_adapters/nulldb_adapter'
 require 'set'
+require 'my_amee/app_config'
 
 module ActiveRecord
   class Base
     # Establishes a connection to the database that's used by all Active Record objects.
     def self.my_amee_connection(config) # :nodoc:
       # Fetch config
-      new_config = MyAmee::Config.application_config(:database)
+      new_config = MyAmee::AppConfig.get(:database)
       if new_config
         config.merge! new_config if new_config
         
