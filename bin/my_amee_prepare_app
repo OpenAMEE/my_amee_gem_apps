@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+path = ARGV[0]
+puts "Usage: my_amee_prepare_app <path_to_app>" and return if path.nil?
+template_dir = File.dirname(__FILE__)+"/../templates"
+
+def check_and_copy(from, to)
+  puts "Checking #{to}..."
+  unless File.exists?(to)
+    puts "... copying from #{from}"
+    `cp #{from} #{to}`
+  else
+    puts "... OK"
+  end
+end
+
+check_and_copy "#{template_dir}/dispatch.fcgi", "#{path}/public/dispatch.fcgi"
+check_and_copy "#{template_dir}/.htaccess", "#{path}/public/.htaccess"
+check_and_copy "#{path}/config/environments/production.rb", "#{path}/config/environments/staging.rb"
+
+puts `my_amee_extract_theme`
