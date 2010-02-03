@@ -6,6 +6,12 @@ if Object.const_defined?("AMEE")
     module Rails
       class Connection
 
+        def self.global_with_my_amee(options = {})
+          # Blow away the cached connection, so that we always force a reconnect with new credentials
+          @connection = nil
+          self.global_without_my_amee(options)
+        end
+
         def self.connect_with_my_amee(server, username, password, options)
           # Fetch config
           config = MyAmee::AppConfig.get(:amee)
@@ -18,6 +24,7 @@ if Object.const_defined?("AMEE")
         end
 
         class << self
+          alias_method_chain :global, :my_amee
           alias_method_chain :connect, :my_amee
         end
 
