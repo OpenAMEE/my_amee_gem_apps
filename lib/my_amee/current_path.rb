@@ -17,7 +17,5 @@ module MyAmee
     def self.get
       Thread.current[:current_path]
     end
-
   end
-
 end
