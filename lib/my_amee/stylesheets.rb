@@ -10,7 +10,11 @@ module ActionView
         # If theme is set, get stylesheet url
         if config
           extension = source =~ /^.*\.css/ ? "" : ".css"
-          return "#{config['url']}/stylesheets/#{source}#{extension}"
+          if source.starts_with? "/"
+            return "#{config['url']}#{source}#{extension}"
+          else
+            return "#{config['url']}/stylesheets/#{source}#{extension}"
+          end
         else
           return stylesheet_path_without_my_amee(source)
         end
