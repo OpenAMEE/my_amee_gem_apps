@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.executables = ['my_amee_extract_theme', 'my_amee_prepare_app']
   s.add_dependency("my_amee_core", "~>1.0.0")
   s.add_dependency("json")
-  s.add_dependency("amee", "~>2.0.28")
+  s.add_dependency("amee", "~>2.0.35")
 end
