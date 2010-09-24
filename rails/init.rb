@@ -8,3 +8,8 @@ require 'my_amee/images'
 ActionController::Base.send :include, MyAmee::CurrentHost
 ActionController::Base.send :include, MyAmee::CurrentPath
 ActionController::Base.send :include, MyAmee::ErrorHandlers
+
+if defined?(HoptoadNotifier)
+  HoptoadNotifier.configuration.ignore << MyAmee::Exceptions::Suspended
+  HoptoadNotifier.configuration.ignore << MyAmee::Exceptions::Initialising
+end
