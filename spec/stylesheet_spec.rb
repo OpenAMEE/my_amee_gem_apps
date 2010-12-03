@@ -9,7 +9,7 @@ describe ActionView::Helpers::AssetTagHelper do
     include ActionView::Helpers::AssetTagHelper
   end
 
-  describe "without valid My AMEE config" do
+  describe "stylesheet without valid My AMEE config" do
 
     before :each do
       @view = TestView.new
@@ -38,7 +38,7 @@ describe ActionView::Helpers::AssetTagHelper do
 
   end
 
-  describe "with valid My AMEE config" do
+  describe "stylesheet with valid My AMEE config" do
 
     before :each do
       @view = TestView.new
