@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "my_amee_apps"
-  s.version = "1.1.6"
-  s.date = "2010-09-24"
+  s.version = "1.1.7"
+  s.date = "2011-03-21"
   s.summary = "Rails plugin to help integrate apps into my.amee.com"
   s.email = "james@amee.cc"
   s.homepage = "http://my.amee.com"
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.executables = ['my_amee_extract_theme', 'my_amee_prepare_app']
   s.add_dependency("my_amee_core", "~>1.0.0")
   s.add_dependency("json")
-  s.add_dependency("amee", "~>2.0.35")
+  s.add_dependency("amee", ">= 2.0.35", "< 3")
 end
