@@ -9,7 +9,7 @@ ActionController::Base.send :include, MyAmee::CurrentHost
 ActionController::Base.send :include, MyAmee::CurrentPath
 ActionController::Base.send :include, MyAmee::ErrorHandlers
 
-if defined?(HoptoadNotifier)
+if defined?(HoptoadNotifier && HoptoadNotifier.configured?)
   HoptoadNotifier.configuration.ignore << MyAmee::Exceptions::Suspended
   HoptoadNotifier.configuration.ignore << MyAmee::Exceptions::Initialising
 end
