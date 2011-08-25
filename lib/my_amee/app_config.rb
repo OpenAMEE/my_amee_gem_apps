@@ -1,7 +1,7 @@
 require 'my_amee/config'
 require 'my_amee/current_path'
 require 'my_amee/exceptions'
-require "net/http"
+require "curb"
 require 'json'
 
 module MyAmee
@@ -14,9 +14,11 @@ module MyAmee
         config = MyAmee::Config.get
         if config && config['secret_key'] && config['url']
           # Generate configuration URL
-          url = URI.parse("#{config['url']}/apps.json?app=#{config['secret_key']}&path=#{path}")
+          url = "#{config['url']}/apps.json?app=#{config['secret_key']}&path=#{path}"
           # Get configuration from appstore
-          return JSON.parse(Net::HTTP.get(url))[section.to_s]
+          r = Curl::Easy.http_get(url)
+          # Extract correct section
+          return JSON.parse(r.body_str)[section.to_s]
         end
       end
       nil
