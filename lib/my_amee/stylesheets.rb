@@ -1,3 +1,4 @@
+require 'active_support/core_ext'
 require 'my_amee/app_config'
 
 module ActionView
