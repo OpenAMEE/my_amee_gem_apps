@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.files += ['bin/my_amee_extract_theme', 'bin/my_amee_prepare_app']
   s.files += ['templates/dispatch.fcgi', 'templates/.htaccess', 'templates/503.html']
   s.executables = ['my_amee_extract_theme', 'my_amee_prepare_app']
-  s.add_dependency("my_amee_core", "~>1.0.0")
+  s.add_dependency("my_amee_core", "~> 1.0")
   s.add_dependency("json")
   s.add_dependency("amee", ">= 2.0.35", "< 3")
   s.add_dependency("curb", "~> 0.7")
