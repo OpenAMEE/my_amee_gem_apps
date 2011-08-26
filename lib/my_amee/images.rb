@@ -1,16 +1,15 @@
-require 'active_support/core_ext'
 require 'my_amee/app_config'
 
 module ActionView
   module Helpers
     module AssetTagHelper
       def image_path_with_my_amee(source)
-        return image_path_without_my_amee(source) if source.starts_with?('http')
+        return image_path_without_my_amee(source) if source =~ /^http.*/
         # Fetch config
         config = MyAmee::AppConfig.get(:theme)
         # If theme is set, get stylesheet url
         if config
-          if source.starts_with? "/"
+          if source =~ /^\/.*/
             return "#{config['url']}#{source}"
           else
             return "#{config['url']}/images/#{source}"
