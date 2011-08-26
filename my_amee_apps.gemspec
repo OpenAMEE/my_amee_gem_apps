@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name = "my_amee_apps"
-  s.version = "1.1.8"
-  s.date = "2011-05-25"
+  s.version = "1.2.0"
+  s.date = "2011-08-26"
   s.summary = "Rails plugin to help integrate apps into my.amee.com"
-  s.email = "james@amee.cc"
-  s.homepage = "http://my.amee.com"
+  s.email = "james@amee.com"
+  s.homepage = "https://my.amee.com"
   s.has_rdoc = true
   s.authors = ["James Smith"]
   s.files = ["README", "COPYING"] 
@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.add_dependency("my_amee_core", "~>1.0.0")
   s.add_dependency("json")
   s.add_dependency("amee", ">= 2.0.35", "< 3")
+  s.add_dependency("curb", "~> 0.7")
 end
